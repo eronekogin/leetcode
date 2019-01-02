@@ -2,6 +2,7 @@
 https://leetcode.com/problems/two-sum/
 """
 
+
 class Solution:
     def twoSum(self, nums, target):
         """
@@ -10,14 +11,12 @@ class Solution:
         :rtype: List[int]
         """
         chkDict = {}
-        
-        for i in range(len(nums)):
-            num = nums[i]
-            
+
+        for i, num in enumerate(nums):
             chkNum = target - num
             rsltPos = chkDict.get(chkNum)
-            
+
             if rsltPos is not None and rsltPos != i:
                 return [rsltPos, i]
-            
+
             chkDict[num] = i

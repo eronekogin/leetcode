@@ -1,3 +1,8 @@
+"""
+https://leetcode.com/problems/zigzag-conversion/
+"""
+
+
 class Solution:
     def convert(self, s, numRows):
         """
@@ -8,21 +13,23 @@ class Solution:
         if numRows < 2 or numRows > len(s):
             return s
 
-        workList = [''] * numRows
-        index = 0
+        rowList = [''] * numRows
+        row = top = 0
+        bottom = numRows - 1
 
         # Visit by rows.
         for c in s:
-            workList[index] += c
+            rowList[row] += c
 
-            if index == 0:
-                direction = 1  # Going down
-            elif index == numRows - 1:
-                direction = -1  # Going up
+            if row == top:
+                offset = 1  # Going down
 
-            index += direction
+            if row == bottom:
+                offset = -1  # Going up
 
-        return ''.join(workList)
+            row += offset
+
+        return ''.join(rowList)
 
 
 # textList = [('PAYPALISHIRING', 3), ('PAYPALISHIRING', 4)]

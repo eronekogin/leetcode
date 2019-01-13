@@ -12,13 +12,13 @@ class Solution:
         if x < 0 or (x % 10 == 0 and x != 0):
             return False
 
-        t, n = x, 0
+        n = 0
 
-        while t > n:  # Reverse only half digits of x to avoid overflow
-            t, r = divmod(t, 10)
+        while x > n:  # Reverse only half digits of x to avoid overflow
+            x, r = divmod(x, 10)
             n = n * 10 + r
 
-        return t == n or t == n // 10  # even and odd case
+        return x == n or x == n // 10  # even and odd case
 
 
 print(Solution().isPalindrome(1110))

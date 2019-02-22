@@ -14,8 +14,8 @@ class Solution:
 
         while interval < total:
             for i in range(0, total - interval, interval * 2):
-                # Merge lists[i] and listsp[i + 1] and store
-                # results into lists[i].
+                # Merge lists[i] and lists[i + interval]
+                # and store results into lists[i].
                 fakeHead = ListNode(None)
                 tempNode = fakeHead
                 l1, l2 = lists[i], lists[i + interval]

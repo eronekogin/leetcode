@@ -6,16 +6,6 @@ class ListNode:
     def __repr__(self):
         return '{0} -> {1}'.format(self.val, self.next)
 
-    def print_node_list(self):
-        x = str(self.val)
-        y = self.next
-
-        while y is not None:
-            x += ' -> {0}'.format(y.val)
-            y = y.next
-
-        print(x)
-
     def create_node_list(self, start=None, stop=None, givenList=None):
         temp = self
 

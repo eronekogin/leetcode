@@ -50,7 +50,7 @@ def probability(diceNumber: int, sides: int, target: int) -> float:
             rslt[j] -= rslt[j - sides]
 
     # Calculate probability.
-    return rslt[-1] / sides ** diceNumber
+    return rslt[total - 1] / sides ** diceNumber
 
 
 print(probability(1, 2, 1))

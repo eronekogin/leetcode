@@ -1,12 +1,17 @@
+from typing import List
+
+
 class ListNode:
-    def __init__(self, x):
+    def __init__(self, x: int):
         self.val = x
         self.next = None
 
     def __repr__(self):
         return '{0} -> {1}'.format(self.val, self.next)
 
-    def create_node_list(self, start=None, stop=None, givenList=None):
+    def create_node_list(
+            self, start: int = None,
+            stop: int = None, givenList: List[int] = None) -> 'ListNode':
         temp = self
 
         if givenList is None:
@@ -19,3 +24,13 @@ class ListNode:
                 temp = temp.next
 
         return self.next
+
+
+class Sudoku:
+
+    def print_board(self, board: List[List['Solution.Cell']]) -> str:
+        rslt = ''
+        for row in board:
+            rslt += ' '.join([str(cell.value) for cell in row]) + '\n'
+
+        print(rslt)

@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict, Tuple
 
 
 class ListNode:
@@ -13,7 +13,6 @@ class ListNode:
             self, start: int = None,
             stop: int = None, givenList: List[int] = None) -> 'ListNode':
         temp = self
-
         if givenList is None:
             for i in range(start, stop):
                 temp.next = ListNode(i)
@@ -26,11 +25,27 @@ class ListNode:
         return self.next
 
 
-class Sudoku:
+class TreeNode:
+    def __init__(self, x: int):
+        self.val = x
+        self.left = None
+        self.right = None
 
-    def print_board(self, board: List[List['Solution.Cell']]) -> str:
-        rslt = ''
-        for row in board:
-            rslt += ' '.join([str(cell.value) for cell in row]) + '\n'
+    def __repr__(self):
+        return '{0} -> ({1}, {2})'.format(self.val, self.left, self.right)
 
-        print(rslt)
+    def create_tree(self, givenDict: Dict[int, Tuple[int, int]]) -> 'TreeNode':
+        nodeList, nextList = [self], []
+        while nodeList:
+            for node in nodeList:
+                left, right = givenDict.get(node.val, [None, None])
+                if left:
+                    node.left = TreeNode(left)
+                    nextList.append(node.left)
+
+                if right:
+                    node.right = TreeNode(right)
+                    nextList.append(node.right)
+
+            nodeList = nextList
+            nextList = []

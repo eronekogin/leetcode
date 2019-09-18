@@ -3,9 +3,6 @@ https://leetcode.com/problems/sudoku-solver/
 """
 
 from typing import List
-from test_helper import Sudoku
-
-SUDOKU = Sudoku()
 
 
 class Solution:
@@ -219,4 +216,3 @@ board = [
 
 s = Solution()
 s.solveSudoku(board)
-SUDOKU.print_board(s.cells)

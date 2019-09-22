@@ -32,7 +32,9 @@ class TreeNode:
         self.right = None
 
     def __repr__(self):
-        return '{0} -> ({1}, {2})'.format(self.val, self.left, self.right)
+        left = self.left.val if self.left else None
+        right = self.right.val if self.right else None
+        return '{0} -> ({1}, {2})'.format(self.val, left, right)
 
     def create_tree(self, givenDict: Dict[int, Tuple[int, int]]) -> None:
         nodeList, nextList = [self], []

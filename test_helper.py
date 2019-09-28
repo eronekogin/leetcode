@@ -37,17 +37,37 @@ class TreeNode:
         return '{0} -> ({1}, {2})'.format(self.val, left, right)
 
     def create_tree(self, givenDict: Dict[int, Tuple[int, int]]) -> None:
-        nodeList, nextList = [self], []
-        while nodeList:
-            for node in nodeList:
-                left, right = givenDict.get(node.val, [None, None])
+        nodes = [self]
+        while nodes:
+            nextNodes = []
+            for node in nodes:
+                left, right = givenDict.get(node.val, (None, None))
                 if left:
                     node.left = TreeNode(left)
-                    nextList.append(node.left)
+                    nextNodes.append(node.left)
 
                 if right:
                     node.right = TreeNode(right)
-                    nextList.append(node.right)
+                    nextNodes.append(node.right)
 
-            nodeList = nextList
-            nextList = []
+            nodes = nextNodes
+
+    def print_tree(self) -> Dict[int, Tuple[int, int]]:
+        nodes, rslt = [self], {}
+        while nodes:
+            nextNodes = []
+            for node in nodes:
+                left, right = None, None
+                if node.left:
+                    left = node.left.val
+                    nextNodes.append(node.left)
+
+                if node.right:
+                    right = node.right.val
+                    nextNodes.append(node.right)
+
+                rslt[node.val] = (left, right)
+
+            nodes = nextNodes
+
+        return rslt

@@ -13,6 +13,7 @@ from test_helper import TreeNode
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        # Presumption: Each node of the tree contains a unique value.
         if not preorder:  # Empty tree.
             return None
 

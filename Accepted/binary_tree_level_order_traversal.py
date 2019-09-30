@@ -25,9 +25,7 @@ class Solution:
 
                 values.append(node.val)
 
-            if values:
-                rslt.append(values)
-
+            rslt.append(values)
             nodes = newNodes
 
         return rslt

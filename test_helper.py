@@ -36,7 +36,7 @@ class TreeNode:
         right = self.right.val if self.right else None
         return '{0} -> ({1}, {2})'.format(self.val, left, right)
 
-    def create_tree(self, givenDict: Dict[int, Tuple[int, int]]) -> None:
+    def create_tree(self, givenDict: Dict[int, Tuple[int, int]]):
         nodes = [self]
         while nodes:
             nextNodes = []
@@ -67,6 +67,54 @@ class TreeNode:
                     nextNodes.append(node.right)
 
                 rslt[node.val] = (left, right)
+
+            nodes = nextNodes
+
+        return rslt
+
+
+class Node(TreeNode):
+    def __init__(self, x: int):
+        super().__init__(x)
+        self.next = None
+
+    def __repr__(self):
+        return '{0}, next: {1}'.format(super().__repr__(), self.next)
+
+    def create_tree(self, givenDict: Dict[int, Tuple[int, int]]):
+        nodes = [self]
+        while nodes:
+            nextNodes = []
+            for node in nodes:
+                left, right = givenDict.get(node.val, (None, None))
+                if left:
+                    node.left = Node(left)
+                    nextNodes.append(node.left)
+
+                if right:
+                    node.right = Node(right)
+                    nextNodes.append(node.right)
+
+            nodes = nextNodes
+
+    def print_tree(self) -> Dict[int, Tuple[int, int, int]]:
+        nodes, rslt = [self], {}
+        while nodes:
+            nextNodes = []
+            for node in nodes:
+                left, right, nxt = None, None, None
+                if node.left:
+                    left = node.left.val
+                    nextNodes.append(node.left)
+
+                if node.right:
+                    right = node.right.val
+                    nextNodes.append(node.right)
+
+                if node.next:
+                    nxt = node.next.val
+
+                rslt[node.val] = (left, right, nxt)
 
             nodes = nextNodes
 

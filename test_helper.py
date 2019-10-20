@@ -119,3 +119,9 @@ class Node(TreeNode):
             nodes = nextNodes
 
         return rslt
+
+
+class GraphNode():
+    def __init__(self, val: int, neighbors: List['GraphNode']):
+        self.val = val
+        self.neighbors = neighbors

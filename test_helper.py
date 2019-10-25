@@ -125,3 +125,15 @@ class GraphNode():
     def __init__(self, val: int, neighbors: List['GraphNode']):
         self.val = val
         self.neighbors = neighbors
+
+
+class RandomNode():
+    def __init__(self, val: int, next: 'RandomNode', random: 'RandomNode'):
+        self.val = val
+        self.next = next
+        self.random = random
+
+    def __repr__(self):
+        next = self.next.val if self.next else None
+        random = self.random.val if self.random else None
+        return '{0}: (next: {1}, random: {2})'.format(self.val, next, random)

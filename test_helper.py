@@ -7,11 +7,13 @@ class ListNode:
         self.next = None
 
     def __repr__(self):
-        return '{0} -> {1}'.format(self.val, self.next)
+        nextVal = self.next.val if self.next else None
+        return '{0} -> {1}'.format(self.val, nextVal)
 
     def create_node_list(
             self, start: int = None,
-            stop: int = None, givenList: List[int] = None) -> 'ListNode':
+            stop: int = None,
+            givenList: List[int] = None) -> 'ListNode':
         temp = self
         if givenList is None:
             for i in range(start, stop):
@@ -22,6 +24,17 @@ class ListNode:
                 temp.next = ListNode(i)
                 temp = temp.next
 
+        return self.next
+
+    def create_cycle_list(
+            self, givenList: List[int], cyclePos: int) -> 'ListNode':
+        currNode, currList = self, []
+        for i in givenList:
+            currNode.next = ListNode(i)
+            currList.append(currNode.next)
+            currNode = currNode.next
+
+        currNode.next = currList[cyclePos]
         return self.next
 
 

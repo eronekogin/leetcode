@@ -37,6 +37,14 @@ class ListNode:
         currNode.next = currList[cyclePos]
         return self.next
 
+    def print_single_list(self) -> List[int]:
+        currNode, rslt = self, []
+        while currNode:
+            rslt.append(currNode.val)
+            currNode = currNode.next
+
+        return rslt
+
 
 class TreeNode:
     def __init__(self, x: int):

@@ -8,23 +8,11 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        if not prices:
-            return 0
+        rslt = 0
+        for i in range(1, len(prices)):
+            rslt += max(prices[i] - prices[i - 1], 0)
 
-        currMaxProfit, i, n = 0, 0, len(prices) - 1
-        currValley = currPeak = prices[0]
-        while i < n:
-            while i < n and prices[i] >= prices[i + 1]:  # Searching valley.
-                i += 1
-
-            currValley = prices[i]
-            while i < n and prices[i] <= prices[i + 1]:  # Searching peak.
-                i += 1
-
-            currPeak = prices[i]
-            currMaxProfit += currPeak - currValley
-
-        return currMaxProfit
+        return rslt
 
 
 prices = [7, 1, 5, 3, 6, 4]

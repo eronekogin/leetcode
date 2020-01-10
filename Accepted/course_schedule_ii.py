@@ -1,5 +1,5 @@
 """
-https://leetcode.com/problems/course-schedule/
+https://leetcode.com/problems/course-schedule-ii/
 """
 
 
@@ -8,8 +8,8 @@ from collections import deque, defaultdict
 
 
 class Solution:
-    def canFinish(
-            self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+    def findOrder(
+            self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         """
         Use BFS to perform topological sort.
         """
@@ -20,13 +20,16 @@ class Solution:
 
         # Put all nodes which have empty pre nodes into the queue.
         queue = deque([i for i in range(numCourses) if i not in nodesWithPre])
+        rslt = []
         while queue:
             pre = queue.popleft()
+            rslt.append(pre)
             for curr in todo[pre]:
                 nodesWithPre[curr] -= 1
                 if not nodesWithPre[curr]:  # The current node has no pre.
                     queue.append(curr)
 
-            todo.pop(pre)
+        if len(rslt) != numCourses:
+            return []
 
-        return not todo
+        return rslt

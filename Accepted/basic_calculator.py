@@ -6,7 +6,7 @@ https://leetcode.com/problems/basic-calculator/
 class Solution:
     def calculate(self, s: str) -> int:
         stack, operand, sign, rslt = [], 0, 1, 0
-        for c in s:
+        for c in s + '+':  # Make sure the last number is processed.
             if c.isdecimal():  # '0' ~ '9'.
                 operand = operand * 10 + int(c)
             elif c == '+':
@@ -25,7 +25,7 @@ class Solution:
                 rslt += stack.pop()  # Then poped is the operand.
                 operand = 0
 
-        return rslt + sign * operand
+        return rslt
 
 
 print(Solution().calculate("12 + 34"))

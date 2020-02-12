@@ -17,11 +17,9 @@ class Solution:
 
         # Partition the numbers into two groups which have this rightmost
         # bit set or not.
-        a = b = 0
+        a = 0
         for num in nums:
             if num & diff:
                 a ^= num
-            else:
-                b ^= num
 
-        return [a, b]
+        return [a, a ^ ab]  # a ^ (a ^ b) = b

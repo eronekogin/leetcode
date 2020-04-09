@@ -18,6 +18,9 @@ class Solution:
         ...
         RX: y + (x - 1)y % x, ..., xy % x
 
+        Since xy % x = 0, now for the x + 1 round, we are back to the initial
+        states where both jug x and jug y are empty. Then we start at R1 again.
+
         So basically z could only be a combination of ax + by, while a, b
         are integers. Then the restrictions will be:
 

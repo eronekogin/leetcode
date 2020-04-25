@@ -6,19 +6,7 @@ https://leetcode.com/problems/flatten-nested-list-iterator/
 from typing import List
 
 
-class NestedInteger:
-    def __init__(self, num: int, nestedList: List['NestedInteger'] = None):
-        self.num = num
-        self.nestedList = nestedList
-
-    def isInteger(self) -> bool:
-        return self.nestedList is None
-
-    def getInteger(self) -> int:
-        return self.num
-
-    def getList(self) -> List['NestedInteger']:
-        return self.nestedList
+from test_helper import NestedInteger
 
 
 class NestedIterator:

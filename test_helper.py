@@ -142,13 +142,13 @@ class Node(TreeNode):
         return rslt
 
 
-class GraphNode():
+class GraphNode:
     def __init__(self, val: int, neighbors: List['GraphNode']):
         self.val = val
         self.neighbors = neighbors
 
 
-class RandomNode():
+class RandomNode:
     def __init__(self, val: int, next: 'RandomNode', random: 'RandomNode'):
         self.val = val
         self.next = next
@@ -158,3 +158,41 @@ class RandomNode():
         next = self.next.val if self.next else None
         random = self.random.val if self.random else None
         return '{0}: (next: {1}, random: {2})'.format(self.val, next, random)
+
+
+class NestedInteger:
+    def __init__(self, num: int = None):
+        if num is None:
+            self.num = None
+            self.nestedList = []
+        else:
+            self.num = num
+            self.nestedList = None
+
+    def isInteger(self) -> bool:
+        return self.nestedList is None
+
+    def getInteger(self) -> int:
+        if self.num is not None:
+            return self.num
+
+    def add(self, elem: 'NestedInteger'):
+        if self.nestedList is None:
+            self.num = None
+            self.nestedList = []
+
+        self.nestedList.append(elem)
+
+    def setInteger(self, value: int):
+        self.num = value
+        self.nestedList = None
+
+    def getList(self) -> List['NestedInteger']:
+        if self.nestedList is not None:
+            return self.nestedList
+
+    def __repr__(self) -> str:
+        if self.nestedList is None:
+            return str(self.num)
+        else:
+            return str(self.nestedList)

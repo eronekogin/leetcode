@@ -9,14 +9,14 @@ class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         """
         Take dp[i] as the max sub array which contains nums[i] at its end.
-        Then dp[i + 1] = dp[i] > 0 ? dp[i] : 0.
+        Then dp[i + 1] = nums[i + 1] + max(0, dp[i])
         """
-        currMax = currSum = nums[0]
-        for num in nums[1:]:
-            currSum = max(num, currSum + num)
-            currMax = max(currMax, currSum)
+        currMax, maxSum = 0, float('-inf')
+        for num in nums:
+            currMax = num + max(currMax, 0)
+            maxSum = max(maxSum, currMax)
 
-        return currMax
+        return maxSum
 
 
 nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]

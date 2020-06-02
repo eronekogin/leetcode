@@ -196,3 +196,20 @@ class NestedInteger:
             return str(self.num)
         else:
             return str(self.nestedList)
+
+
+class QuadTreeNode:
+    def __init__(
+            self,
+            val: int,
+            isLeaf: int,
+            topLeft: 'QuadTreeNode',
+            topRight: 'QuadTreeNode',
+            bottomLeft: 'QuadTreeNode',
+            bottomRight: 'QuadTreeNode'):
+        self.val = val
+        self.isLeaf = isLeaf
+        self.topLeft = topLeft
+        self.topRight = topRight
+        self.bottomLeft = bottomLeft
+        self.bottomRight = bottomRight

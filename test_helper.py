@@ -219,3 +219,11 @@ class NaryTreeNode:
     def __init__(self, val=None, children=None):
         self.val = val
         self.children = children
+
+
+class DoublyLinkedListNode:
+    def __init__(self, val, prev, next, child):
+        self.val = val
+        self.prev = prev
+        self.next = next
+        self.child = child

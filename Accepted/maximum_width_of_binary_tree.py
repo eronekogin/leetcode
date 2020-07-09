@@ -54,11 +54,11 @@ class Solution:
                 maxWidth, nodesOnEachLevel[-1][0] - nodesOnEachLevel[0][0] + 1)
 
             nodesOnEachLevel = [
-                (idx, node)
+                nextItem
                 for preIdx, preNode in nodesOnEachLevel
-                for idx, node in enumerate(
+                for nextItem in enumerate(
                     (preNode.left, preNode.right), start=preIdx << 1)
-                if node
+                if nextItem[1]
             ]
 
         return maxWidth

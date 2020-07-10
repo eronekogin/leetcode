@@ -34,11 +34,10 @@ class Solution:
 
         That's why it will generate rand40. 
         """
-        i = 41
-        while i > 40:
+        while True:
             i = 7 * (rand7() - 1) + rand7
-
-        return 1 + (i - 1) % 10
+            if i <= 40:  # rand40.
+                return 1 + (i - 1) % 10
 
     def rand10_2(self) -> int:
         """
@@ -50,20 +49,21 @@ class Solution:
             rand7() we will get rand21, which will give us rand20.
         3. If our number unfortunately falls to 21, then we start again.
         """
-        def generate(a: int, t: int) -> int:
-            i = 7 * (a - 1) + rand7()
-            if i <= t:
+        while True:
+            a = rand7()
+            b = rand7()
+            i = 7 * (a - 1) + b
+            if i <= 40:  # rand40.
                 return 1 + (i - 1) % 10
 
-            return 0  # The number falls out of range.
+            a = i - 40
+            b = rand7()
+            i = 7 * (a - 1) + b
+            if i <= 60:  # rand60.
+                return 1 + (i - 1) % 10
 
-        while True:
-            i = generate(rand7(), 40)
-            if not i:
-                i = generate(i - 40, 60)
-
-            if not i:
-                i = generate(i - 60, 20)
-
-            if i:
-                return i
+            a = i - 60
+            b = rand7()
+            i = 7 * (a - 1) + b
+            if i <= 20:  # rand20.
+                return 1 + (i - 1) % 10

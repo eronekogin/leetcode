@@ -10,8 +10,7 @@ class Solution:
         :rtype: int
         """
         chkDict = {}
-        rslt = 0
-        startPos = 0
+        rslt = startPos = 0
 
         for currPos, chkChar in enumerate(s):
             if chkChar in chkDict and startPos <= chkDict[chkChar]:
@@ -21,10 +20,3 @@ class Solution:
             chkDict[chkChar] = currPos
 
         return max(rslt, len(s) - startPos)
-
-
-textList = ['abcabcbb', 'bbbbb', 'pwwkew', ' ', 'qrsvbspk', 'abba']
-s = Solution()
-
-for text in textList:
-    print('{0} -> {1}'.format(text, s.lengthOfLongestSubstring(text)))

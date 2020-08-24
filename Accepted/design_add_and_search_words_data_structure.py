@@ -1,5 +1,5 @@
 """
-https://leetcode.com/problems/add-and-search-word-data-structure-design/
+https://leetcode.com/problems/design-add-and-search-words-data-structure/
 """
 
 
@@ -7,7 +7,6 @@ from collections import deque
 
 
 class WordDictionary:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -48,11 +47,3 @@ class WordDictionary:
                         queue.append((nextLevel, currNode[currChar]))
 
         return False
-
-
-w = WordDictionary()
-w.addWord('bad')
-w.addWord('dad')
-w.addWord('mad')
-w.search('.ad')
-w.search('b..')

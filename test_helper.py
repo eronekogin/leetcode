@@ -201,8 +201,8 @@ class NestedInteger:
 class QuadTreeNode:
     def __init__(
             self,
-            val: int,
-            isLeaf: int,
+            val: bool,
+            isLeaf: bool,
             topLeft: 'QuadTreeNode',
             topRight: 'QuadTreeNode',
             bottomLeft: 'QuadTreeNode',

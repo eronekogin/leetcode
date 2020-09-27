@@ -30,8 +30,8 @@ class Solution:
 
             hull.append(p)
 
-        if len(hull) == len(points):  # All the points are on the same line.
-            return hull
+        if len(hull) == len(points):
+            return hull  # All the points are on the perimeter now.
 
         # Scan from right to left to generate the higher part of the hull.
         # Remove the last point first as it will be scanned again.

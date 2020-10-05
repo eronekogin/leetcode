@@ -5,6 +5,9 @@ https://leetcode.com/problems/complement-of-base-10-integer/
 
 class Solution:
     def bitwiseComplement(self, N: int) -> int:
+        """
+        Handle the number bit by bit.
+        """
         if not N:
             return 1
 
@@ -16,5 +19,16 @@ class Solution:
 
         return rslt
 
+    def bitwiseComplement2(self, N: int) -> int:
+        """
+        Suppose x's complement is y, then x ^ y = z, which contains all ones.
+        So if we found the z, then x ^ z = x ^ x ^ y = y.
+        """
+        allOnes = 1
+        while allOnes < N:
+            allOnes = (allOnes << 1) + 1
 
-print(Solution().bitwiseComplement(5))
+        return allOnes ^ N
+
+
+print(Solution().bitwiseComplement2(5))

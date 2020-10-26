@@ -30,7 +30,7 @@ class Solution:
         Notice that we only use the data from the previous row, we could
         reduce the 2d dp to 1d instead. So we have:
             1. If k >= n:
-                next[k + 1] = curr[k + 1] + next[k] - old[k - n]
+                next[k + 1] = curr[k + 1] + next[k] - curr[k - n]
             2. Else:
                 next[k + 1] = curr[k + 1] + next[k]
         """

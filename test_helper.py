@@ -63,11 +63,11 @@ class TreeNode:
             nextNodes = []
             for node in nodes:
                 left, right = givenDict.get(node.val, (None, None))
-                if left:
+                if left is not None:
                     node.left = TreeNode(left)
                     nextNodes.append(node.left)
 
-                if right:
+                if right is not None:
                     node.right = TreeNode(right)
                     nextNodes.append(node.right)
 
@@ -108,11 +108,11 @@ class Node(TreeNode):
             nextNodes = []
             for node in nodes:
                 left, right = givenDict.get(node.val, (None, None))
-                if left:
+                if left is not None:
                     node.left = Node(left)
                     nextNodes.append(node.left)
 
-                if right:
+                if right is not None:
                     node.right = Node(right)
                     nextNodes.append(node.right)
 

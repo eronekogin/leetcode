@@ -227,3 +227,10 @@ class DoublyLinkedListNode:
         self.prev = prev
         self.next = next
         self.child = child
+
+
+class Employee:
+    def __init__(self, id: int, importance: int, subordinates: List[int]):
+        self.id = id
+        self.importance = importance
+        self.subordinates = subordinates

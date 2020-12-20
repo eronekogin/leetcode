@@ -1,8 +1,6 @@
 """
 https://leetcode.com/problems/the-skyline-problem/
 
-https://briangordon.github.io/2014/08/the-skyline-problem.html
-
 
 https://leetcode.com/problems/the-skyline-problem/discuss/61261/10-line-Python-solution-104-ms
 

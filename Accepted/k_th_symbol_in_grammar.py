@@ -18,7 +18,7 @@ class Solution:
         if N == 1 and K == 1:
             return 0
 
-        m = 2 ** (N - 2)
+        m = 1 << (N - 2)  # = 2^(N - 1) // 2.
         if K <= m:
             return self.kthGrammar(N - 1, K)
         else:

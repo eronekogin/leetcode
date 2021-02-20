@@ -34,5 +34,25 @@ class Solution:
 
         return ''.join(rslt)
 
+    def minRemoveToMakeValid2(self, s: str) -> str:
+        """
+        Use stack to track all balanced part of s, then remove the remaining
+        things from the stack after one scan.
+        """
+        rslt, stack = list(s), []
+        for i, c in enumerate(rslt):
+            if c == '(':
+                stack.append(i)
+            elif c == ')':
+                if stack:
+                    stack.pop()  # Match with a previous left parenthese.
+                else:  # Single opened right parenthese is not allowed.
+                    rslt[i] = ''
+
+        while stack:  # Remove remaining open left parentheses.
+            rslt[stack.pop()] = ''
+
+        return ''.join(rslt)
+
 
 print(Solution().minRemoveToMakeValid('(a(b(c)d)'))

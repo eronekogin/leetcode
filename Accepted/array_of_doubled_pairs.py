@@ -9,7 +9,7 @@ from collections import Counter
 class Solution:
     def canReorderDoubled(self, arr: list[int]) -> bool:
         memo = Counter(arr)
-        for x in sorted(memo, key=lambda x: abs(x)):
+        for x in sorted(memo, key=abs):
             if memo[x << 1] < memo[x]:
                 return False
             else:

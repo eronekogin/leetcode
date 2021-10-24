@@ -234,3 +234,14 @@ class Employee:
         self.id = id
         self.importance = importance
         self.subordinates = subordinates
+
+
+class MountainArray:
+    def __init__(self, items: list[int]) -> None:
+        self.items = items
+
+    def get(self, index: int) -> int:
+        return self.items[index]
+
+    def length(self) -> int:
+        return len(self.items)

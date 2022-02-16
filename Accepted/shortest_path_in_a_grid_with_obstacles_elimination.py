@@ -3,9 +3,6 @@ https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination
 """
 
 
-from itertools import combinations
-
-
 class Solution:
     def shortestPath(self, grid: list[list[int]], k: int) -> int:
         R, C = len(grid), len(grid[0])

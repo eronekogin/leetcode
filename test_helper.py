@@ -1,6 +1,3 @@
-from typing import List, Dict, Tuple
-
-
 class ListNode:
     def __init__(self, x: int):
         self.val = x
@@ -11,11 +8,14 @@ class ListNode:
         return '{0} -> {1}'.format(self.val, nextVal)
 
     def create_node_list(
-            self, start: int = None,
-            stop: int = None,
-            givenList: List[int] = None) -> 'ListNode':
+            self, start: int | None = None,
+            stop: int | None = None,
+            givenList: list[int] | None = None) -> 'ListNode':
         temp = self
         if givenList is None:
+            if start is None or stop is None:
+                return self
+
             for i in range(start, stop):
                 temp.next = ListNode(i)
                 temp = temp.next
@@ -24,10 +24,10 @@ class ListNode:
                 temp.next = ListNode(i)
                 temp = temp.next
 
-        return self.next
+        return self
 
     def create_cycle_list(
-            self, givenList: List[int], cyclePos: int) -> 'ListNode':
+            self, givenList: list[int], cyclePos: int) -> 'ListNode':
         currNode, currList = self, []
         for i in givenList:
             currNode.next = ListNode(i)
@@ -35,9 +35,9 @@ class ListNode:
             currNode = currNode.next
 
         currNode.next = currList[cyclePos]
-        return self.next
+        return self
 
-    def print_single_list(self) -> List[int]:
+    def print_single_list(self) -> list[int]:
         currNode, rslt = self, []
         while currNode:
             rslt.append(currNode.val)
@@ -57,7 +57,7 @@ class TreeNode:
         right = self.right.val if self.right else None
         return '{0} -> ({1}, {2})'.format(self.val, left, right)
 
-    def create_tree(self, givenDict: Dict[int, Tuple[int, int]]):
+    def create_tree(self, givenDict: dict[int, tuple[int | None, int | None]]):
         nodes = [self]
         while nodes:
             nextNodes = []
@@ -73,7 +73,9 @@ class TreeNode:
 
             nodes = nextNodes
 
-    def print_tree(self) -> Dict[int, Tuple[int, int]]:
+        return self
+
+    def print_tree(self) -> dict[int, tuple[int, int]]:
         nodes, rslt = [self], {}
         while nodes:
             nextNodes = []
@@ -102,7 +104,7 @@ class Node(TreeNode):
     def __repr__(self):
         return '{0}, next: {1}'.format(super().__repr__(), self.next)
 
-    def create_tree(self, givenDict: Dict[int, Tuple[int, int]]):
+    def create_tree(self, givenDict: dict[int, tuple[int, int]]):
         nodes = [self]
         while nodes:
             nextNodes = []
@@ -118,7 +120,7 @@ class Node(TreeNode):
 
             nodes = nextNodes
 
-    def print_tree(self) -> Dict[int, Tuple[int, int, int]]:
+    def print_tree(self) -> dict[int, tuple[int, int, int]]:
         nodes, rslt = [self], {}
         while nodes:
             nextNodes = []
@@ -143,7 +145,7 @@ class Node(TreeNode):
 
 
 class GraphNode:
-    def __init__(self, val: int, neighbors: List['GraphNode']):
+    def __init__(self, val: int, neighbors: list['GraphNode']):
         self.val = val
         self.neighbors = neighbors
 
@@ -161,7 +163,7 @@ class RandomNode:
 
 
 class NestedInteger:
-    def __init__(self, num: int = None):
+    def __init__(self, num: int | None = None):
         if num is None:
             self.num = None
             self.nestedList = []
@@ -172,7 +174,7 @@ class NestedInteger:
     def isInteger(self) -> bool:
         return self.nestedList is None
 
-    def getInteger(self) -> int:
+    def getInteger(self) -> int | None:
         if self.num is not None:
             return self.num
 
@@ -187,9 +189,11 @@ class NestedInteger:
         self.num = value
         self.nestedList = None
 
-    def getList(self) -> List['NestedInteger']:
+    def getList(self) -> list['NestedInteger']:
         if self.nestedList is not None:
             return self.nestedList
+
+        return [self]
 
     def __repr__(self) -> str:
         if self.nestedList is None:
@@ -230,7 +234,7 @@ class DoublyLinkedListNode:
 
 
 class Employee:
-    def __init__(self, id: int, importance: int, subordinates: List[int]):
+    def __init__(self, id: int, importance: int, subordinates: list[int]):
         self.id = id
         self.importance = importance
         self.subordinates = subordinates

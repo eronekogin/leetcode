@@ -1,7 +1,7 @@
 class ListNode:
     def __init__(self, x: int):
         self.val = x
-        self.next = None
+        self.next: 'ListNode' | None = None
 
     def __repr__(self):
         nextVal = self.next.val if self.next else None

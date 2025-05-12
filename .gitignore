@@ -1,4 +1,5 @@
 .vscode/
 misc.py
 venv/
+temp.py
 __pycache__/

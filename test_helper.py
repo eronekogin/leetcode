@@ -47,10 +47,10 @@ class ListNode:
 
 
 class TreeNode:
-    def __init__(self, x: int):
+    def __init__(self, x: int, left=None, right=None):
         self.val = x
-        self.left = None
-        self.right = None
+        self.left: TreeNode | None = left
+        self.right: TreeNode | None = right
 
     def __repr__(self):
         left = self.left.val if self.left else None

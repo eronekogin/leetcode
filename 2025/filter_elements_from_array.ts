@@ -1,8 +1,8 @@
 // https://leetcode.com/problems/filter-elements-from-array/description/
 
-type Fn = (n: number, i: number) => any;
+type Fn1 = (n: number, i: number) => any;
 
-function filter(arr: number[], fn: Fn): number[] {
+function filter(arr: number[], fn: Fn1): number[] {
   const rslt: number[] = [];
 
   for (let i = 0; i < arr.length; i++) {

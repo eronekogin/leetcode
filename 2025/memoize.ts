@@ -1,8 +1,8 @@
 // https://leetcode.com/problems/memoize/description/
 
-type Fn = (...params: number[]) => number;
+type Fn2 = (...params: number[]) => number;
 
-function memoize(fn: Fn): Fn {
+function memoize(fn: Fn2): Fn2 {
   const memo = new Map<string, number>();
 
   return function (...args) {

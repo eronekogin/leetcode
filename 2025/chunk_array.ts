@@ -1,13 +1,13 @@
 // https://leetcode.com/problems/chunk-array/description/
 
-type JSONValue =
+type JSONValue3 =
   | null
   | boolean
   | number
   | string
-  | JSONValue[]
-  | { [key: string]: JSONValue };
-type Obj = Record<string, JSONValue> | Array<JSONValue>;
+  | JSONValue3[]
+  | { [key: string]: JSONValue3 };
+type Obj = Record<string, JSONValue3> | Array<JSONValue3>;
 
 function chunk(arr: Obj[], size: number): Obj[][] {
   const rslt: Obj[][] = [];

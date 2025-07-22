@@ -3,3 +3,5 @@ misc.py
 venv/
 temp.py
 __pycache__/
+node_modules/
+out/

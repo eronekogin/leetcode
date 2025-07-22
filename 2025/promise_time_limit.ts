@@ -1,8 +1,8 @@
 // https://leetcode.com/problems/promise-time-limit/description/
 
-type Fn = (...params: any[]) => Promise<any>;
+type Fn4 = (...params: any[]) => Promise<any>;
 
-function timeLimit(fn: Fn, t: number): Fn {
+function timeLimit(fn: Fn4, t: number): Fn4 {
   return async function (...args) {
     return new Promise((resolve, reject) => {
       const timeoutId = setTimeout(() => {

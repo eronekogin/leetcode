@@ -5,9 +5,9 @@ type JSONValue =
   | boolean
   | number
   | string
-  | JSONValue[]
-  | { [key: string]: JSONValue };
-type OnceFn = (...args: JSONValue[]) => JSONValue | undefined;
+  | JSONValuex2[]
+  | { [key: string]: JSONValuex2 };
+type OnceFn = (...args: JSONValuex2[]) => JSONValuex2 | undefined;
 
 function once(fn: Function): OnceFn {
   let isCalled = false;

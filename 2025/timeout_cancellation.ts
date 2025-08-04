@@ -5,9 +5,9 @@ type JSONValuex =
   | boolean
   | number
   | string
-  | JSONValue[]
-  | { [key: string]: JSONValue };
-type Fn = (...args: JSONValue[]) => void;
+  | JSONValuex2[]
+  | { [key: string]: JSONValuex2 };
+type Fn = (...args: JSONValuex2[]) => void;
 
 function cancellable1(fn: Fn, args: JSONValuex[], t: number): Function {
   const x = setTimeout(() => {

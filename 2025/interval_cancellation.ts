@@ -5,9 +5,9 @@ type JSONValuex4 =
   | boolean
   | number
   | string
-  | JSONValuex4[]
-  | { [key: string]: JSONValuex4 };
-type Fnx2 = (...args: JSONValue[]) => void;
+  | JSONValuex5[]
+  | { [key: string]: JSONValuex5 };
+type Fnx2 = (...args: JSONValuex5[]) => void;
 
 function cancellable2(fn: Fnx2, args: JSONValuex3[], t: number): Function {
   fn(...args);
